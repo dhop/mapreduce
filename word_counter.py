@@ -1,8 +1,8 @@
 import re
 
-from mapreduce import MapReduce
+from mapreduce import MapReduce, MapReduceConcurrent
 
-class WordCounter(MapReduce):
+class WordCounter(MapReduceConcurrent):
   WORD = re.compile(r"[\w']+")
 
   def mapper(self, line):
@@ -15,5 +15,5 @@ class WordCounter(MapReduce):
 
 if __name__ == "__main__":
 
-    wc = WordCounter("if-kipling.txt")
+    wc = WordCounter("t8.shakespeare.txt")
     wc.run()
