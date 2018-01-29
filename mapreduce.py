@@ -119,8 +119,8 @@ class MapReduceConcurrent(_MapReduceCore):
         # will be in the mapped array upon completion.
         with open(self.input_path) as input_file:
             mapped = pool.map(self.load_and_map,
-                                     input_file,
-                                     chunksize=mapper_chunksize)
+                              input_file,
+                              chunksize=mapper_chunksize)
 
         # main process group-by
         # since the mapping is 1-to-many, each worker process returns a
