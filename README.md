@@ -45,6 +45,19 @@ if __name__ == "__main__"
     wc.run()
 ```
 
-MapReduceConcurrent will start the MapReduce job by creating a pool of processes. It reuses this pool throughout the job to submit concurrent map and reduce tasks to different processes, each with an equally divide group of work to do. It uses the built-in `Pool.map` to divide the work, with a `chunksize` that is calculated from the amount of records in the Iterable divided by the amount of processes in the pool.
+MapReduceConcurrent will start the MapReduce job by creating a pool of processes. It reuses this pool throughout the job to submit concurrent map and reduce tasks to different processes, each with an equally divided group of work to do. It uses the built-in `Pool.map` to divide the work, with a `chunksize` that is calculated from the amount of records in the Iterable divided by the amount of processes in the pool.
 
 
+----
+
+`word_counter.py` and `movie_ratings.py` are both MapReduce programs that use the `mapreduce` module as defined above. They can be used out of the box as follows:
+
+```bash
+    $ python word_counter.py shakespeare.txt > results.tsv
+```
+
+```bash
+    $ python movie_ratings.py ratings.txt > results.tsv
+```
+
+Omitting the `results.tsv` will send the results to stdout. You may also change each example's inheritance from MapReduce to MapReduceConcurrent and vice versa. All functionality will remain the same. 

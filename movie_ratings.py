@@ -3,7 +3,7 @@ import sys
 
 from mapreduce import MapReduce, MapReduceConcurrent
 
-class MovieRatings(MapReduceConcurrent):
+class MovieRatings(MapReduce):
     MOVIES = {}
 
     def setup(self):
