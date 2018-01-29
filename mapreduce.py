@@ -6,10 +6,10 @@ import itertools
 from subprocess import check_output
 from collections import defaultdict
 
-# This library makes use of multiprocessing, which requires all distributed work
+# This module makes use of multiprocessing, which requires all distributed work
 # to be pickled to be sent off to different processes. Natively, pickling can't
 # be done on instance methods of a class, as is necessary for this MapReduce
-# library, so instead we define a custom pickle method to get around this.
+# module, so instead we define a custom pickle method to get around this.
 # The following code snippet follows from this stackoverflow article:
 # https://stackoverflow.com/questions/25156768/cant-pickle-type-instancemethod-using-pythons-multiprocessing-pool-apply-a
 def _pickle_method(m):
