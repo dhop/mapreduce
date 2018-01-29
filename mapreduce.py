@@ -21,7 +21,7 @@ def _pickle_method(m):
 copy_reg.pickle(types.MethodType, _pickle_method)
 
 
-class MapReduceCore:
+class _MapReduceCore:
     """
     MapReduceCore is the base class for both MapReduce and MapReduceConcurrent
     it simply contains the placeholders for the setup/cleanup/mapper/reducer,
@@ -76,7 +76,7 @@ class MapReduceCore:
         return
 
 
-class MapReduceConcurrent(MapReduceCore):
+class MapReduceConcurrent(_MapReduceCore):
     """
     MapReduceConcurrent is the multi-process implementation of our MapReduce engine
     """
@@ -156,7 +156,7 @@ class MapReduceConcurrent(MapReduceCore):
         self.cleanup()
 
 
-class MapReduce(MapReduceCore):
+class MapReduce(_MapReduceCore):
     """
     MapReduce is the single-process implementation of our MapReduce engine
     """

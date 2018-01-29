@@ -1,4 +1,5 @@
 import re
+import sys
 
 from mapreduce import MapReduce, MapReduceConcurrent
 
@@ -14,5 +15,5 @@ class WordCounter(MapReduceConcurrent):
 
 
 if __name__ == "__main__":
-    wc = WordCounter("shakespeare.txt", processes=8)
+    wc = WordCounter(sys.argv[1], processes=8)
     wc.run()

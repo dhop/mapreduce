@@ -1,4 +1,5 @@
 import json
+import sys
 
 from mapreduce import MapReduce, MapReduceConcurrent
 
@@ -23,5 +24,5 @@ class MovieRatings(MapReduceConcurrent):
 
 if __name__ == "__main__":
 
-    mr = MovieRatings("ratings.txt")
+    mr = MovieRatings(sys.argv[1])
     mr.run()
